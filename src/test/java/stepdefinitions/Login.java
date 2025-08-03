@@ -86,14 +86,17 @@ public class Login {
             String username = credentials[0];
             String password = credentials[1];
 
-            log.info("Logging in with username: " + username);
-            // Launch browser and open app
-            WebDriver driver = new ChromeDriver(); // or get from BaseClass
-            BaseClass.setDriver(driver);
+            log.info("Navigating to the login page: " + url);
+            driver = BaseClass.getDriver(); // Get from Hooks
             driver.manage().window().maximize();
-            driver.get(ConfigPropertiesReader.getProperty("envurl"));
+            driver.get(url);
 
-            // Login
+            // Initialize Page Objects
+            loginpage = new Loginpage(driver);
+            homepage = new Homepage(driver);
+            wait = new WaitClass(driver);
+
+           // Login
             Loginpage loginpage = new Loginpage(driver);
             loginpage.enterUsername(username);
             loginpage.enterPassword(password);
@@ -106,8 +109,9 @@ public class Login {
 
             log.info("Login success: " + isLoginSuccess);
 
-            driver.quit(); // close for each iteration
+            //driver.quit(); // close for each iteration
+
+
         }
     }
-
 }

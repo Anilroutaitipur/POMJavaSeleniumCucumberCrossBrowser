@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="29.912" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-08-02T21:18:12.716167Z">
+<testcase classname="Login functionality with data from Excel" name="User should be able to login using data from Excel" time="29.78">
+<system-out><![CDATA[
+Given User reads login data from Excel and logs in..........................passed
+]]></system-out>
+</testcase>
+</testsuite>
+
